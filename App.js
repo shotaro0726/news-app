@@ -1,13 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,4 +8,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  itemContainer: {
+    height: 100,
+    width: '100%',
+    borderColor: 'gray',
+    borderWidth: 1,
+    flexDirection: "row",
+  },
+  leftContainer: {
+    width: 100,
+  },
+  rightContainer: {
+    flex: 1,
+    padding: 10,
+    justifyContent: "space-between"
+  },
+  text: {
+    fontSize: 16,
+  },
+  subtext: {
+    fontSize: 12,
+    color: "gray",
+  },
 });
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.itemContainer}>
+        <View style={styles.leftContainer}>
+          <Image style={{ width: 100, height: 100 }} source={{ uri: "https://picsum.photos/id/10/200/200" }} />
+        </View>
+        <View style={styles.rightContainer}>
+          <Text numberOfLines={3} style={styles.text}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
+          <Text style={styles.subtext}>
+            ReacNews
+          </Text>
+        </View>
+      </View>
+    </View>
+  );
+}
+
