@@ -4,6 +4,7 @@ import { WebView } from 'react-native-webview';
 import { useDispatch, useSelector } from 'react-redux';
 import { addClip, deleteClip } from '../store/actions/user';
 import ClipButton from '../componets/ClipButton';
+import Loading from '../componets/Loding';
 
 const styles = StyleSheet.create({
     container: {
@@ -29,11 +30,14 @@ export default ArticleScreen = (route) => {
             dispatch(addClip({ clip: article }));
         }
     }
-    
+
     return (
         <SafeAreaView style={styles.container}>
-            <ClipButton onPress={toggleClip} enabled={isCliped}/>
-            <WebView source={{uri: article.url}} />
+            <ClipButton onPress={toggleClip} enabled={isCliped} />
+            <WebView
+                source={{ uri: article.url }}
+                renderLoading={() => <Loading />}
+            />
         </SafeAreaView>
     );
 }
